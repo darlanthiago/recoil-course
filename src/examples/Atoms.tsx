@@ -1,13 +1,13 @@
 import { atom, useRecoilState, useRecoilValue } from 'recoil';
 
-const darkModeAtom = atom({
+const darkModeState = atom({
     key: "darkModeAtom",
     default: false,
 });
 
 const DarkModeSwitch = () => {
 
-    const [darkMode, setDarkMode] = useRecoilState(darkModeAtom);
+    const [darkMode, setDarkMode] = useRecoilState(darkModeState);
 
     return <input
         type="checkbox"
@@ -17,7 +17,7 @@ const DarkModeSwitch = () => {
 }
 
 const Button = () => {
-    const darkMode = useRecoilValue(darkModeAtom);
+    const darkMode = useRecoilValue(darkModeState);
 
     return <button style={{
         backgroundColor: darkMode ? 'black' : 'white',
